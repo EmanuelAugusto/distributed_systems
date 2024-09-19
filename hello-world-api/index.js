@@ -5,19 +5,11 @@ const cors = require("cors");
 const port = 3000;
 
 app.use(cors());
+
 app.get("/", (req, res) => {
-  res.json([
-    {
-      orinalText: "Teste um",
-      translatedText: "Test one"
-    },
-    {
-      orinalText: "Teste dois",
-      translatedText: "Test two"
-    },
-  ]);
+  res.json([]);
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`listening on port ${port}`);
 });
