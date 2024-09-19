@@ -44,7 +44,19 @@ redisClient.connect().then(() => {
       orinalText: dataDecoded.orinalText,
     };
 
-    await redisDb.set("user", JSON.stringify(dataTranslated));
+    const KEY = "user";
+
+    const data = await redisDb.get(KEY);
+
+    let history = [];
+
+    if (data) {
+      history = [...JSON.parse(data)];
+    }
+
+    history.push(dataTranslated);
+
+    await redisDb.set("user", JSON.stringify(history));
 
     socket.emit(TRANSLATE_CHANNEL_CALLBACK, dataTranslated);
   });
