@@ -58,11 +58,11 @@ const loadingLogin = ref(false);
 const userData = reactive({ user: null });
 
 const loginForm = reactive({
-  username: "df7e0b22-b4f0-4041-9451-b17c9a444966",
+  username: "e273b3c0-fa6b-4ab4-b8a3-c6b67b008740",
   password: "Teste123$",
 });
 
-const socket = io("localhost:3001");
+const socket = io("localhost:3003");
 
 const data = reactive({
   translates: [],
@@ -82,7 +82,7 @@ const translate = () => {
 const login = async () => {
   try {
     loadingLogin.value = true;
-    const userResponse = await axios.post("http://localhost:3005/login", {
+    const userResponse = await axios.post("http://localhost:3002/login", {
       ...loginForm,
     });
 
@@ -100,7 +100,7 @@ socket.on(TRANSLATE_CHANNEL_RESPONSE, (socketData) => {
 });
 
 onMounted(async () => {
-  const translatesResponse = await axios.get("http://localhost:3000/");
+  const translatesResponse = await axios.get("http://localhost:3001/");
 
   data.translates = translatesResponse.data;
 });
