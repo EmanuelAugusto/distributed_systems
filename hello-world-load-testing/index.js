@@ -25,7 +25,7 @@ const mode = process.argv[2] ?? "longtaskmulti";
   callfunction();
   setInterval(() => {
     callfunction();
-  }, 20000);
+  }, 30000);
 })();
 
 //ab -n 10000 -c 1000 -p post_data.json -T application/json http://localhost:3005/login

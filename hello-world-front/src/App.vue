@@ -87,7 +87,6 @@ const login = async () => {
     });
 
     userData.user = userResponse.data;
-    console.log(userResponse);
   } catch (error) {
   } finally {
     loadingLogin.value = false;
