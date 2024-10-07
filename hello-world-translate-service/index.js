@@ -4,9 +4,9 @@ const axios = require("axios");
 const io = require("socket.io-client");
 
 const Redis = require("ioredis");
-const redisDb = new Redis();
+const redisDb = new Redis('redis://redis:6379');
 
-const URL_REDIS_CONN = "redis://localhost:6379";
+const URL_REDIS_CONN = "redis://redis:6379";
 
 const TRANSLATE_CHANNEL = "translate-channel";
 
@@ -17,7 +17,7 @@ const redisClient = redis.createClient({ url: URL_REDIS_CONN });
 redisClient.on("error", (err) => console.log("error_connect", err));
 
 redisClient.connect().then(() => {
-  const socket = io("http://localhost:3001");
+  const socket = io("http://hello_world_socket:3001");
 
   redisClient.subscribe(TRANSLATE_CHANNEL, async (message) => {
     const dataDecoded = JSON.parse(message);

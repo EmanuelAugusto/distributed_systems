@@ -28,9 +28,15 @@ services:
     container_name: hello_world_socket
     build:
       dockerfile: Dockerfile
-      context: ./hello-world-auth
+      context: ./hello-world-socket
     ports:
       - "3001:3001"
+  hello_world_translate_service:
+    image: node:18
+    container_name: hello_world_translate_service
+    build:
+      dockerfile: Dockerfile
+      context: ./hello-world-translate-service
 
 volumes:
   redis:
