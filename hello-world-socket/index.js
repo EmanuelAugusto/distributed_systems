@@ -11,7 +11,7 @@ app.get("/status", (req, res) => {
   res.json({ status: "OK" });
 });
 
-const URL_REDIS_CONN = "redis://localhost:6379";
+const URL_REDIS_CONN = "redis://redis:6379";
 
 const redisClient = redis.createClient({ url: URL_REDIS_CONN });
 
