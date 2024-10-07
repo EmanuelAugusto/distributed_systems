@@ -23,7 +23,7 @@ const Redis = require("ioredis");
     cluster.fork();
   });
 } else {*/
-const redisDb = new Redis();
+const redisDb = new Redis('redis://redis:6379');
 
 const usersDB = {};
 

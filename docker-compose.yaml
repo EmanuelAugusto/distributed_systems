@@ -15,6 +15,14 @@ services:
       context: ./hello-world-api
     ports:
       - "3000:3000"
+  hello_world_auth:
+    image: node:18
+    container_name: hello_world_auth
+    build:
+      dockerfile: Dockerfile
+      context: ./hello-world-auth
+    ports:
+      - "3005:3005"
 
 volumes:
   redis:
