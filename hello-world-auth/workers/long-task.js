@@ -5,6 +5,7 @@ async function longtask(value) {
   return new Promise((resolve) => {
     let counter = 0;
     for (let i = 0; i < 20_000_000_000; i++) {
+      console.log(`worker:${i}`)
       counter++;
     }
 

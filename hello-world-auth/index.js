@@ -70,7 +70,7 @@ function runWorkerLongTask() {
   });
 }
 
-app.post("/login", async (req, res) => {
+app.post("/auth/login", async (req, res) => {
   const { username, password, requestId } = req.body;
 
   const data = await redisDb.get(username);
@@ -99,10 +99,7 @@ app.post("/login", async (req, res) => {
   return res.json(user);
 });
 
-app.post("/register", async (req, res) => {
-  setTimeout(() => {
-    console.log("oi");
-  }, 10000);
+app.post("/auth/register", async (req, res) => {
   const { username, password } = req.body;
 
   const data = await redisDb.get(username);
@@ -123,15 +120,16 @@ app.post("/register", async (req, res) => {
   res.status(200).json(user);
 });
 
-app.post("/longtasknormal", async (req, res) => {
+app.post("/auth/longtasknormal", async (req, res) => {
   let counter = 0;
   for (let i = 0; i < 20_000_000_000; i++) {
     counter++;
+    console.log(`${i}`)
   }
   res.status(200).send(`result is ${counter}`);
 });
 
-app.post("/longtaskmulti", async (req, res) => {
+app.post("/auth/longtaskmulti", async (req, res) => {
   const counter = await runWorkerLongTask();
 
   res.status(200).send(`result is ${counter}`);
