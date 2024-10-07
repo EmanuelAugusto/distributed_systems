@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: helloworltranslateservice
+  labels:
+    app: helloworltranslateservice
+spec:
+  containers:
+    - name: helloworltranslateservice
+      image: 'library/helloworltranslateservice:latest'
+      imagePullPolicy: Never

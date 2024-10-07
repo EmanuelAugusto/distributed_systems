@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: helloworldauth
+  labels:
+    app: helloworldauth
+spec:
+  containers:
+    - name: helloworldauth
+      image: 'library/helloworldauth:latest'
+      imagePullPolicy: Never
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloworldauth
+spec:
+  selector:
+    app: helloworldauth
+  ports:
+    - port: 3005
+---

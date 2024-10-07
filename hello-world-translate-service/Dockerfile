@@ -8,5 +8,4 @@ RUN yarn
 
 COPY . .
 
-
 CMD [ "node", "index.js" ]

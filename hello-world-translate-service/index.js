@@ -17,7 +17,7 @@ const redisClient = redis.createClient({ url: URL_REDIS_CONN });
 redisClient.on("error", (err) => console.log("error_connect", err));
 
 redisClient.connect().then(() => {
-  const socket = io("http://hello_world_socket:3001");
+  const socket = io("http://helloworldsocket:3001");
 
   redisClient.subscribe(TRANSLATE_CHANNEL, async (message) => {
     const dataDecoded = JSON.parse(message);

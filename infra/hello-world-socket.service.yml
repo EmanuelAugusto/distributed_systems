@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: helloworldsocket
+  labels:
+    app: helloworldsocket
+spec:
+  containers:
+    - name: helloworldsocket
+      image: 'library/helloworldsocket:latest'
+      imagePullPolicy: Never
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloworldsocket
+spec:
+  selector:
+    app: helloworldsocket
+  ports:
+    - port: 3001
+---
