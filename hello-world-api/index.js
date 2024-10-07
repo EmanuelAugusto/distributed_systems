@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 
 const Redis = require("ioredis");
-const redisDb = new Redis();
+const redisDb = new Redis('redis://redis:6379');
 
 const port = 3000;
 
