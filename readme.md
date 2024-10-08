@@ -13,12 +13,14 @@ Serviços:
 
 - hello-world-translate-service: serviço que opera com pub/sub(REDIS) responsável por fazer a operação de tradução conectando a serviçoes externos
 
+- hello-world-auth: serviço de autenticação.
 
 
- kubectl port-forward service/redis  6378:6379
- kubectl port-forward service/helloworldapi 3001:3000
- kubectl port-forward service/helloworldauth 3002:3005
- kubectl port-forward service/helloworldsocket 3003:3001
+```bash
+kubectl port-forward service/redis  6378:6379
+kubectl port-forward service/helloworldapi 3001:3000
+kubectl port-forward service/helloworldauth 3002:3005
+kubectl port-forward service/helloworldsocket 3003:3001
 
 eval $(minikube docker-env)
 
@@ -26,3 +28,4 @@ minikube addons enable metrics-server
 
 
 minikube image load ${imagename}
+```
