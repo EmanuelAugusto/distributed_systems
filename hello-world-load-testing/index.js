@@ -9,7 +9,7 @@ const mode = process.argv[2] ?? "longtaskmulti";
     const requestId = uuid.v4();
     console.time(`time:${requestId}`);
     axios
-      .post("http://localhost:3002/"+mode, {
+      .post("http://192.168.49.2:30577/"+mode, {
         username: "df7e0b22-b4f0-4041-9451-b17c9a444966",
         password: "Teste123$",
         requestId,
