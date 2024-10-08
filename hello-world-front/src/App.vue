@@ -58,7 +58,7 @@ const loadingLogin = ref(false);
 const userData = reactive({ user: null });
 
 const loginForm = reactive({
-  username: "e273b3c0-fa6b-4ab4-b8a3-c6b67b008740",
+  username: "0fc437f3-349f-4829-b19e-682b4a43b4ac",
   password: "Teste123$",
 });
 
@@ -82,7 +82,7 @@ const translate = () => {
 const login = async () => {
   try {
     loadingLogin.value = true;
-    const userResponse = await axios.post("http://192.168.49.2:30577/login", {
+    const userResponse = await axios.post("http://192.168.49.2/auth/login", {
       ...loginForm,
       requestId: new Date().toISOString(),
     });

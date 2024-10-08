@@ -9,7 +9,7 @@ const mode = process.argv[2] ?? "longtaskmulti";
     const requestId = uuid.v4();
     console.time(`time:${requestId}`);
     axios
-      .post("http://192.168.49.2:30577/"+mode, {
+      .post("http://192.168.49.2/auth/"+mode, {
         username: "df7e0b22-b4f0-4041-9451-b17c9a444966",
         password: "Teste123$",
         requestId,
@@ -23,9 +23,9 @@ const mode = process.argv[2] ?? "longtaskmulti";
   };
 
   callfunction();
-  setInterval(() => {
+  /*setInterval(() => {
     callfunction();
-  }, 60000);
+  }, 60000);*/
 })();
 
 //ab -n 10000 -c 1000 -p post_data.json -T application/json http://localhost:3005/login
