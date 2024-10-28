@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: helloworldgrpc
+spec:
+ selector:
+   matchLabels:
+     run: helloworldgrpc
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       run: helloworldgrpc
+   spec:
+     containers:
+     - name: helloworldgrpc
+       image: '192.168.49.2:5000/test-img:latest'
+       imagePullPolicy: Never
+       ports:
+       - containerPort: 50051
+       resources:
+         limits:
+           cpu: 500m
+         requests:
+           cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: helloworldgrpc
+ labels:
+   run: helloworldgrpc
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 50051
+      targetPort: 50051
+      protocol: TCP
+  selector:
+    run: helloworldgrpc
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ name: helloworldgrpc
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: helloworldgrpc
+ minReplicas: 1
+ maxReplicas: 1
+ targetCPUUtilizationPercentage: 50

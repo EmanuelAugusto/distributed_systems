@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service TranslationsService {
+    rpc List (Empty) returns (TranslationsArray) {}
+}
+
+message Empty {}
+
+message Translation {
+   string translatedText = 1;
+   string orinalText = 2;
+}
+message TranslationsArray {
+   repeated Translation tranlations = 1;
+
+}

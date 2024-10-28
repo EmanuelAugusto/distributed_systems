@@ -1,0 +1,11 @@
+{
+  "name": "hello-world-grpc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.7.13",
+    "grpc": "^1.24.11",
+    "ioredis": "^5.4.1"
+  }
+}

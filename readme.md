@@ -21,8 +21,11 @@ kubectl port-forward service/redis  6378:6379
 kubectl port-forward service/helloworldapi 3001:3000
 kubectl port-forward service/helloworldauth 3002:3005
 kubectl port-forward service/helloworldsocket 3003:3001
+kubectl port-forward service/helloworldgrpc 50052:50051
+
 
 eval $(minikube docker-env)
+docker build --tag $(minikube ip):5000/test-img .
 
 minikube addons enable metrics-server
 
